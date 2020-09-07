@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello vue</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <button @click="decrease">-</button>
+        <span>{{ count }}</span>
+        <button @click="add">+</button>
+    </div>
+
+    <div id="app2">
+        <button @click="decrease2">-</button>
+        <span>{{ count }}</span>
+        <button @click="add2">+</button>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                count: 0
+            },
+            methods: {
+                decrease: function(){
+                    if(this.count==0){
+                        alert("下限0！")
+                        return
+                    }
+                    this.count-=1;
+                },
+                add: function(){
+                    if(this.count==10){
+                        alert("上限10！")
+                        return
+                    }
+                    this.count+=1;
+                }
+            }
+        })
+
+        var app2 = new Vue({
+            el: '#app2',
+            data: {
+                count: 0
+            },
+            methods: {
+                decrease2: function(){
+                    if(this.count==0){
+                        alert("下限0！")
+                        return
+                    }
+                    this.count-=1;
+                },
+                add2: function(){
+                    if(this.count==10){
+                        alert("上限10！")
+                        return
+                    }
+                    this.count+=1;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

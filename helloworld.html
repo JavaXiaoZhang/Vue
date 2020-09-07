@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello vue</title>
+</head>
+
+<body>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        {{ message }}
+        <h1>{{ user.name }}帥</h1>
+        <ul>
+            <li>{{ages[0]}}</li>
+        </ul>
+        <h2 v-text="user.name+'1'"></h2>
+        <h2 v-html="aaa"></h2>
+        <input type="button" value="点击事件" v-on:click="onceClick">
+        <input type="button" value="鼠标进入事件" v-on:mouseenter="onMouseEnter">
+        <input type="button" value="双击事件" v-on:dblclick="dblClick">
+        <input type="button" value="@双击事件" @dblclick="dblClick">
+        <h2 type="button" value="@点击事件" @click="xlh">{{ food }}</h2>
+        
+    </div>
+</body>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!!!!',
+            user: {
+                name: "zzqq"
+            },
+            ages: [1, 2, 3, 4, 5, 6],
+            aaa: '<a href="http://www.baidu.com">百度一下</a>',
+            food: "xlh"
+        },
+        methods: {
+            onceClick:function() {
+                alert("!")
+            },
+            onMouseEnter:function(){
+                alert("!")
+            },
+            dblClick:function(){
+                alert("!")
+            },
+            xlh: function(){
+                this.food+='hhh~'
+            }
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello vue</title>
+    <style>
+        .active{
+            border: 1px solid brown;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <button @click='changeIsShow'>切换显示状态</button>
+        <button @click='changeImgPath'>切换图片</button>
+        <button @click='changeIsActive'>切换样式</button>
+        <img :src="imgArr[index]" v-show="isShow" alt="" v-bind:title="title+'!!!'" :class="{active:isActive}">
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                imgArr: ['static/ds1.jpg','static/ds2.jpg'],
+                isShow: true,
+                title: '黑魂',
+                isActive: false,
+                index: 0
+            },
+            methods: {
+                changeIsShow:function(){
+                    this.isShow = !this.isShow
+                },
+                changeImgPath:function(){
+                    this.index = ++this.index%2
+                },
+                changeIsActive:function(){
+                    this.isActive = !this.isActive
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
